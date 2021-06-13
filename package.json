@@ -1,11 +1,8 @@
 {
-  "homepage": "https://Deependra952118.github.io/expense-tracker",
   "name": "expense-tracker-node",
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
     "start": "nodemon ./bin/www"
   },
   "dependencies": {
