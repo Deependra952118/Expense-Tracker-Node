@@ -1,11 +1,9 @@
 var createError = require("http-errors");
 var express = require("express");
-var concurrently = require("concurrently");
 var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 var mongoose = require("mongoose");
-const cors = require("cors");
 const connectDB = require("./config/db");
 
 connectDB();
@@ -20,12 +18,11 @@ var app = express();
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "jade");
 
-app.use(cors());
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, "client", "build", "index.html")));
+app.use(express.static(path.join(__dirname, "client/build")));
 
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
